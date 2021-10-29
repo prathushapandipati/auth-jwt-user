@@ -36,7 +36,7 @@ router.post('/register', async (req, res) => {  //  /api/user/register
 
     try {
         const savedUser = await user.save(); //detta sparar User i databasen
-        const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET);  //detta skapar en token
+        const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET);  //detta skapar en token
         res.json({ user: user._id, redirect: 'batcave', token });  //Skickar detta information till frontend
     } catch (error) {
         res.status(400).json(error);
@@ -44,32 +44,32 @@ router.post('/register', async (req, res) => {  //  /api/user/register
     }
 });
 
-router.post('/login', async (req, res) => { 
+router.post('/login', async (req, res) => {
 
     //validate user
-    const {error} = loginValidation(req.body);
-    if(error) {
-        return res.status(400).json({error: error.details[0].message});
+    const { error } = loginValidation(req.body);
+    if (error) {
+        return res.status(400).json({ error: error.details[0].message });
     }
 
     //if existing email
-    const user = await User.findOne({email: req.body.email});
+    const user = await User.findOne({ email: req.body.email });
 
-    if(!user) {  //om det inte finns någon samma email
-        return res.status(400).json({error: 'Email is not found'});
+    if (!user) {  //om det inte finns någon samma email
+        return res.status(400).json({ error: 'Email is not found' });
     }
 
     //Password correct?
     const validPassword = await bcrypt.compare(req.body.password, user.password);
-     
-    if(validPassword) {
-        return res.status(400).json({error: 'Invalid password'});
+
+    if (!validPassword) {
+        return res.status(400).json({ error: 'Invalid password' });
     }
 
     //Create and assign token
-    const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET); //Skapar en token för att skicka till frontend
+    const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET); //Skapar en token för att skicka till frontend
 
-    res.header('auth-token', token).json({token:token, redirect:'batcave'}); // Här sätter vi token i headern på vår /login POST
+    res.header('auth-token', token).json({ token: token, redirect: 'batcave' }); // Här sätter vi token i headern på vår /login POST
 
 });
 

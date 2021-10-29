@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+body {
+    font: 20px Montserrat, sans-serif;
+    line-height: 1.8;
+    color: #f5f6f7;
+}
+
+p {
+    font-size: 16px;
+}
+
+.bg-1 {
+    background-color: #1abc9c;
+    /* Green */
+    color: #ffffff;
+}
+
+.bg-1 input {
+    color: #474e5d;
+}
+
+.bg-4 {
+    background-color: #2f2f2f;
+    /* Black Gray */
+    color: #fff;
+}
+
+.container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.navbar {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+}
+
+.navbar-nav li a:hover {
+    color: #1abc9c !important;
+}
+
+.navbar-brand {
+    font-size: 30px;
+}
+
+button[type=submit] {
+    background-color: #474e5d;
+    ;
+    color: white;
+    ;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button[type=submit]:hover {
+    background-color: #2f2f2f;
+}
+
+.container {
+    border-radius: 5px;
+    background-color: #474e5d;
+    padding: 20px;
+}
+
+form {
+    margin: 0 auto;
+    width: 300px
+}
+
+input[type=email], input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+label {
+    cursor: pointer
+}
+
+#register-form span b {
+    color: #474e5d;
+}
+
+#login-form span b {
+    color: #474e5d;
+}

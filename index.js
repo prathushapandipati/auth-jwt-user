@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');  //Kommunicerar med mongodb
 const dotenv = require('dotenv');  // att vi kan läsa .env filers innehåll
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
 // routes/pages
 const pages = require('./routes/pages');
@@ -29,6 +29,6 @@ app.use('/api/user', authRoute); //detta för logga in och signup för user
 app.use('/api/secure', secureRoute); //detta använder säkring av sidan
 app.use('/', pages);
 
-app.listen(3000, () => {
+app.listen(4000, () => {
     console.log('Server running');
 });
