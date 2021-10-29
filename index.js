@@ -29,6 +29,6 @@ app.use('/api/user', authRoute); //detta för logga in och signup för user
 app.use('/api/secure', secureRoute); //detta använder säkring av sidan
 app.use('/', pages);
 
-app.listen(3000, () => {
-    console.log('Server running');
+app.listen(PORT, () => {
+    console.log(`Our app is running on port ${ PORT }`);
 });
